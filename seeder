@@ -1,0 +1,19 @@
+const uuid = require('uuid');
+const moment = require('moment');
+
+module.exports = {
+	up: async (queryInterface, Sequelize) => {
+		return queryInterface.bulkInsert('Permissions', [
+			{
+				id: uuid.v4(),
+				type: 'SignUpT&C',
+				createdAt: moment().format(),
+				updatedAt: moment().format(),
+			},
+		]);
+	},
+
+	down: async (queryInterface, Sequelize) => {
+		return queryInterface.bulkDelete('Permissions', null, {});
+	},
+};
